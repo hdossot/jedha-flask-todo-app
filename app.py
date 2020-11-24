@@ -4,9 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 DATABASE = "./todo.db"
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
-# uncomment below to use a file rather than memory database
-# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + DATABASE
 db = SQLAlchemy(app)
 
 
@@ -48,5 +45,8 @@ def delete(todo_id):
 
 
 if __name__ == "__main__":
+    # uncomment below to use a file rather than memory database
+    # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + DATABASE
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
     db.create_all()
     app.run(debug=True)
