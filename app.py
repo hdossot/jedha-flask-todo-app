@@ -4,7 +4,9 @@ from flask_sqlalchemy import SQLAlchemy
 DATABASE = "./todo.db"
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////" + DATABASE
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
+# uncomment below to use a file rather than memory database
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + DATABASE
 db = SQLAlchemy(app)
 
 
@@ -20,16 +22,29 @@ def index():
     return render_template("index.html", todo_list=todo_list)
 
 
+@app.route("/add", methods=["POST"])
 def add():
-    pass
+    title = request.form.get("title")
+    new_todo = Todo(title=title, complete=False)
+    db.session.add(new_todo)
+    db.session.commit()
+    return redirect(url_for("index"))
 
 
+@app.route("/complete/<string:todo_id>")
 def complete(todo_id):
-    pass
+    todo = Todo.query.filter_by(id=todo_id).first()
+    todo.complete = not todo.complete
+    db.session.commit()
+    return redirect(url_for("index"))
 
 
+@app.route("/delete/<string:todo_id>")
 def delete(todo_id):
-    pass
+    todo = Todo.query.filter_by(id=todo_id).first()
+    db.session.delete(todo)
+    db.session.commit()
+    return redirect(url_for("index"))
 
 
 if __name__ == "__main__":
