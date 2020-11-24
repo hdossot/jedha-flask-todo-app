@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 DATABASE = "./todo.db"
 
-
+# comment
 def create_app() -> Flask:
     app = Flask(__name__)
     # uncomment below to use a file rather than memory database
