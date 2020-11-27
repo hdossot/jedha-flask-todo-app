@@ -3,7 +3,7 @@
 This repository gathers all pieces of codes produced to create a To do list application using Flask Framework
 
 ## Objective
-The objective of the application is to propose an UI in order to allow the user to save list of topic as reminder.
+The objective of the application is to propose an UI in order to allow the user to save list of topics he want to remind.
 This application is built with a Docker image so it eases the deployment in production.
 
 ### Quick Start : 
