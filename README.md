@@ -1,9 +1,9 @@
 # To Do List Flask Application
 
-This repository gathers all pieces of codes produced to create a To do list application coding with Python using Flask Framework
+This repository gathers all pieces of codes produced to create a To do list application using Flask Framework
 
 ## Objective
-The objective of the application is to propose a To Do List in order the user can register important things.
+The objective of the application is to propose an UI in order to allow the user to save list of topic as reminder.
 This application is built with a Docker image so it eases the deployment in production.
 
 ### Quick Start : 
@@ -15,7 +15,7 @@ This application is built with a Docker image so it eases the deployment in prod
 - Need to build Docker image and have Docker install in the production server
 
 ## Team contributors
-This app was developed during Jedha Bootcamp
+The base code of this app was developed during Jedha Bootcamp and customizes on my own
 
 ## References
 This repository is freely usable
